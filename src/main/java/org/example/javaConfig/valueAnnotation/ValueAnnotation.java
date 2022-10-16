@@ -1,4 +1,4 @@
-package org.example.javaConfig;
+package org.example.javaConfig.valueAnnotation;
 
 import org.example.javaConfig.valueAnnotation.model.Car;
 import org.springframework.context.ApplicationContext;
