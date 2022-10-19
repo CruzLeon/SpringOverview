@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="motor" class="org.example.core.autowired.model.Motor" autowire-candidate="false">
+        <property name="fuerza" value="-500"/>
+    </bean>
+    <bean id="motor2" class="org.example.core.autowired.model.Motor">
+        <property name="fuerza" value="4000"/>
+    </bean>
+    <bean id="car" class="org.example.core.autowired.model.Car" autowire="byType"/>
+
+</beans>
