@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="core/javaConfig/application.yml"/>
+    <bean id="client" class="org.example.SpEL.beanDefinition.model.Client">
+        <property name="name" value="#{ systemProperties['os.arch']}"/>
+        <property name="integer" value="#{T(java.lang.Integer).parseInt('123')}"/>
+    </bean>
+    <bean id="client2" class="org.example.SpEL.beanDefinition.model.Client">
+        <property name="name" value="#{T(java.lang.String).valueOf('jen')}"/>
+        <property name="integer" value="#{T(java.lang.Integer).parseInt('123')}"/>
+    </bean>
+    <!-- propiedad de otro bean -->
+    <bean id="client3" class="org.example.SpEL.beanDefinition.model.Client">
+        <property name="name" value="#{client.name}"/>
+        <property name="integer" value="#{T(java.lang.Integer).parseInt('555')}"/>
+    </bean>
+</beans>
