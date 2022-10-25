@@ -1,9 +1,14 @@
 package org.example.SpEL.evaluation;
 
 import lombok.Data;
+import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
+import org.springframework.expression.spel.support.SimpleEvaluationContext;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class Run {
@@ -30,5 +35,10 @@ public class Run {
         exp = parser.parseExpression("name");
         result = (String)exp.getValue(objet);
         System.out.println(result);
+
+
+
+
+
     }
 }
